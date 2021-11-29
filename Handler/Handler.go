@@ -1,0 +1,22 @@
+package Handler
+
+import (
+	"github.com/bwmarrin/discordgo"
+)
+
+func Register(dg *discordgo.Session){
+	dg.AddHandler(handleMessage)
+	dg.Identify.Intents = discordgo.IntentsGuildMessages
+}
+
+func handleMessage(s *discordgo.Session, m *discordgo.MessageCreate) {
+	if m.Author.ID == s.State.User.ID {
+		return
+	}
+	if m.Content == "ping" {
+		s.ChannelMessageSend(m.ChannelID, "Pong!")
+	}
+	if m.Content == "pong" {
+		s.ChannelMessageSend(m.ChannelID, "Ping!")
+	}
+}
