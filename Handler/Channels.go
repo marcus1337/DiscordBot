@@ -1,0 +1,8 @@
+package Handler
+
+var (
+	welcomeID uint64 = 813034435946741761
+	generalID uint64 = 717397016010817649
+	amongUsID uint64 = 803939056651730974
+	chessID uint64 = 804016296966488145
+)
